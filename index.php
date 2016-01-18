@@ -22,10 +22,10 @@
 
 <div id="chatbox">
 
-  <form  role="form" class="form-inline">
+  <form  role="form" class="form-inline" autocomplete="off">
 
   <input type="text" class="form-control " id="newchat" placeholder="New Message">
-  <button type="submit" id="sendchat" class="btn btn-default">Send</button>
+  <button type="submit" id="sendchat" class="btn btn-info">Send</button>
 
   </form>
 

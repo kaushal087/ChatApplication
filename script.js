@@ -31,11 +31,13 @@ $(document).on("click", "#sendchat", function(e){
     console.log("button click"); 
     e.preventDefault();
 
+
     var message = $("#newchat").val();
 
     var data = sendMessage(e, message);
 
     $('#newchat').val("");
+    focusChat();
     return false;
     
 
@@ -56,6 +58,8 @@ $('form').bind("keypress", function(e) {
 
 
     $('#newchat').val("");
+
+    focusChat();
     return false;
   }
 });
@@ -73,8 +77,10 @@ $('form').bind("keypress", function(e) {
     },
 
     success: function(data) {
-      //console.log(data);
+      
       console.log("success");
+      console.log(data);
+
     },
     complete: function() {
       // Schedule the next request when the current one's complete
@@ -87,3 +93,17 @@ $('form').bind("keypress", function(e) {
                 }
   });
 })();
+
+
+var focusChat = function(){
+
+    $('#newchat').focus();
+
+};
+
+
+$( document ).ready(function() {
+  
+    focusChat();
+
+});

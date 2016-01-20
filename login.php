@@ -2,40 +2,44 @@
 
 	include("server.php");
 
-	echo "Hello World!";
+	//echo "Hello World!<br/>";
 
 	session_start();
 
-	$tempQuery = "SELECT * FROM login";
+	
+	$user = htmlentities($_POST['username'], ENT_QUOTES, 'UTF-8');
+ 
+  	$username = mysql_real_escape_string($user);
 
+	$pass = htmlentities($_POST['password'], ENT_QUOTES, 'UTF-8');
+
+  	$password = mysql_real_escape_string($pass);
+  	
+
+
+	$tempQuery = "SELECT * FROM login WHERE USERNAME ='".$username."' AND PASSWORD = '".$password."'";
 	$result = mysql_query($tempQuery) or die("Error: ".mysql_error());;
 
-
-	$data = array();
-
-	echo "<table>";
 	
 	while($login_rows = mysql_fetch_array($result))
 	{
+		$isUserValid = true;
+		$_SESSION['username']=$_POST['username'];
+		$_SESSION['userid'] = $login_rows['id'];
+		setcookie("username", $_POST['username'], time()+3600*24*365*10, '/');
+		
+	}
 
-		$data[] = $login_rows;
-
-		$userid = $login_rows['id'];
-		$username = $login_rows['username'];
-		$password = $login_rows['password'];
-		$timestamp = $login_rows['timestamp'];
-
-		echo "<tr>"; 
-
-		echo "<td>".$userid."</td><td>".$username."</td><td>".$password."</td><td>".$timestamp."</td>";
-
-		echo "</tr>";
+	if($isUserValid)
+	{
+		echo "successful login";
+		header("Location: index.php");
 
 	}
+	else
+	{
+		echo "Invalid username or password<br/>";
+		echo "<a href ='login.html'>Click here to login!</a>";
+	}
 	
-	echo "</table>";
-
-
-	print json_encode($data);
-
 ?>

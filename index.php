@@ -1,3 +1,10 @@
+<?php
+session_start();
+if(!$_SESSION['username'])
+header("Location: login.html"); /* Redirect browser */
+
+?>
+
 <html>
 
 <head>
@@ -13,18 +20,27 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body class="container">
- <div id="messages">
-   
-<!-- fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/>fasdfa<br/> -->
 
+ <span id="welcome"> </span> <a href="logout.php">Logout</a>
+
+<div>
+ <div id="messages">
 
  </div>
+<div id="sidebar">
+Online Users<hr>
 
+ <div id="onusers">
+
+ </div>
+</div>
+
+</div>
 <div id="chatbox">
 
-  <form  role="form" class="form-inline" autocomplete="off">
+  <form  role="form" class="form-inline" action="save_message.php" method="POST" autocomplete="off">
 
-  <input type="text" class="form-control " id="newchat" placeholder="New Message">
+  <input type="text" class="form-control " id="newchat" placeholder="New Message" name="newmessage">
   <button type="submit" id="sendchat" class="btn btn-info">Send</button>
 
   </form>
